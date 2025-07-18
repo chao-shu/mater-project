@@ -1,0 +1,390 @@
+
+laeve one out;
+
+combined_with_reduced_pose_mlp
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8615  658  105]
+ [1756 1670  300]
+ [ 803  455  796]]
+Class 1 Accuracy: 91.86%
+Class 2 Accuracy: 44.82%
+Class 3 Accuracy: 38.75%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.77      0.92      0.84      9378
+     Class 2       0.60      0.45      0.51      3726
+     Class 3       0.66      0.39      0.49      2054
+
+    accuracy                           0.73     15158
+   macro avg       0.68      0.58      0.61     15158
+weighted avg       0.71      0.73      0.71     15158
+
+
+root_dir = "./features/combined_feature_with_reduced_pose_mlp_after_selection"
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8704  527  147]
+ [1087 2294  345]
+ [ 338  620 1096]]
+Class 1 Accuracy: 92.81%
+Class 2 Accuracy: 61.57%
+Class 3 Accuracy: 53.36%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.86      0.93      0.89      9378
+     Class 2       0.67      0.62      0.64      3726
+     Class 3       0.69      0.53      0.60      2054
+
+    accuracy                           0.80     15158
+   macro avg       0.74      0.69      0.71     15158
+weighted avg       0.79      0.80      0.79     15158
+
+
+mlp selected feature
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8794  474  110]
+ [1826 1498  402]
+ [ 816  312  926]]
+Class 1 Accuracy: 93.77%
+Class 2 Accuracy: 40.20%
+Class 3 Accuracy: 45.08%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.77      0.94      0.85      9378
+     Class 2       0.66      0.40      0.50      3726
+     Class 3       0.64      0.45      0.53      2054
+
+    accuracy                           0.74     15158
+   macro avg       0.69      0.60      0.62     15158
+weighted avg       0.72      0.74      0.72     15158
+
+
+mlp half half selected 
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8651  564  163]
+ [1177 2439  110]
+ [ 346  883  825]]
+Class 1 Accuracy: 92.25%
+Class 2 Accuracy: 65.46%
+Class 3 Accuracy: 40.17%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.85      0.92      0.88      9378
+     Class 2       0.63      0.65      0.64      3726
+     Class 3       0.75      0.40      0.52      2054
+
+    accuracy                           0.79     15158
+   macro avg       0.74      0.66      0.68     15158
+weighted avg       0.78      0.79      0.78     15158
+
+
+half half;
+
+combined_with_reduced_pose_mlp
+Confusion Matrix:
+ [[4288  244  211]
+ [ 489 1043  312]
+ [  56   91  878]]
+Class 1 Accuracy: 90.41%
+Class 2 Accuracy: 56.56%
+Class 3 Accuracy: 85.66%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.89      0.90      0.90      4743
+     Class 2       0.76      0.57      0.65      1844
+     Class 3       0.63      0.86      0.72      1025
+
+    accuracy                           0.82      7612
+   macro avg       0.76      0.78      0.76      7612
+weighted avg       0.82      0.82      0.81      7612
+
+
+root_dir = "./features/combined_feature_with_reduced_pose_mlp_after_selection"
+Confusion Matrix:
+ [[4234  349  124]
+ [ 456 1200  226]
+ [  55  144  831]]
+Class 1 Accuracy: 89.95%
+Class 2 Accuracy: 63.76%
+Class 3 Accuracy: 80.68%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.89      0.90      0.90      4707
+     Class 2       0.71      0.64      0.67      1882
+     Class 3       0.70      0.81      0.75      1030
+
+    accuracy                           0.82      7619
+   macro avg       0.77      0.78      0.77      7619
+weighted avg       0.82      0.82      0.82      7619
+
+mlp selected feature
+Confusion Matrix:
+ [[3708  720  279]
+ [ 466 1152  264]
+ [  61  214  755]]
+Class 1 Accuracy: 78.78%
+Class 2 Accuracy: 61.21%
+Class 3 Accuracy: 73.30%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.88      0.79      0.83      4707
+     Class 2       0.55      0.61      0.58      1882
+     Class 3       0.58      0.73      0.65      1030
+
+    accuracy                           0.74      7619
+   macro avg       0.67      0.71      0.69      7619
+weighted avg       0.76      0.74      0.74      7619
+
+mlp half half selected feature
+Confusion Matrix:
+ [[4243  320  144]
+ [ 504 1154  224]
+ [  37  120  873]]
+Class 1 Accuracy: 90.14%
+Class 2 Accuracy: 61.32%
+Class 3 Accuracy: 84.76%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.89      0.90      0.89      4707
+     Class 2       0.72      0.61      0.66      1882
+     Class 3       0.70      0.85      0.77      1030
+
+    accuracy                           0.82      7619
+   macro avg       0.77      0.79      0.78      7619
+weighted avg       0.82      0.82      0.82      7619
+
+
+
+
+removing worst two video 
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8652  544   56]
+ [1016 2013  227]
+ [ 290  303  772]]
+Class 1 Accuracy: 93.51%
+Class 2 Accuracy: 61.82%
+Class 3 Accuracy: 56.56%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.87      0.94      0.90      9252
+     Class 2       0.70      0.62      0.66      3256
+     Class 3       0.73      0.57      0.64      1365
+
+    accuracy                           0.82     13873
+   macro avg       0.77      0.71      0.73     13873
+weighted avg       0.82      0.82      0.82     13873
+
+man's only(11)
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[3057  698  168]
+ [ 456  853  338]
+ [  98  633  396]]
+Class 1 Accuracy: 77.93%
+Class 2 Accuracy: 51.79%
+Class 3 Accuracy: 35.14%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.85      0.78      0.81      3923
+     Class 2       0.39      0.52      0.45      1647
+     Class 3       0.44      0.35      0.39      1127
+
+    accuracy                           0.64      6697
+   macro avg       0.56      0.55      0.55      6697
+weighted avg       0.67      0.64      0.65      6697
+
+
+woman only(14)
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[5081  316   58]
+ [ 626 1308  145]
+ [ 200  458  269]]
+Class 1 Accuracy: 93.14%
+Class 2 Accuracy: 62.91%
+Class 3 Accuracy: 29.02%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.86      0.93      0.89      5455
+     Class 2       0.63      0.63      0.63      2079
+     Class 3       0.57      0.29      0.38       927
+
+    accuracy                           0.79      8461
+   macro avg       0.69      0.62      0.64      8461
+weighted avg       0.77      0.79      0.77      8461
+
+
+
+east asia (10)
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[3469  152   27]
+ [ 555  863   40]
+ [ 377  460  137]]
+Class 1 Accuracy: 95.09%
+Class 2 Accuracy: 59.19%
+Class 3 Accuracy: 14.07%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.79      0.95      0.86      3648
+     Class 2       0.59      0.59      0.59      1458
+     Class 3       0.67      0.14      0.23       974
+
+    accuracy                           0.74      6080
+   macro avg       0.68      0.56      0.56      6080
+weighted avg       0.72      0.74      0.70      6080
+
+south asia
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[1247  362   25]
+ [ 279  480   51]
+ [ 111  419  112]]
+Class 1 Accuracy: 76.32%
+Class 2 Accuracy: 59.26%
+Class 3 Accuracy: 17.45%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.76      0.76      0.76      1634
+     Class 2       0.38      0.59      0.46       810
+     Class 3       0.60      0.17      0.27       642
+
+    accuracy                           0.60      3086
+   macro avg       0.58      0.51      0.50      3086
+weighted avg       0.63      0.60      0.58      3086
+
+other
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[3760  311   25]
+ [ 636  692  130]
+ [  54  112  272]]
+Class 1 Accuracy: 91.80%
+Class 2 Accuracy: 47.46%
+Class 3 Accuracy: 62.10%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.84      0.92      0.88      4096
+     Class 2       0.62      0.47      0.54      1458
+     Class 3       0.64      0.62      0.63       438
+
+    accuracy                           0.79      5992
+   macro avg       0.70      0.67      0.68      5992
+weighted avg       0.78      0.79      0.78      5992
+
+
+label smoothing +-1
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8783  493  102]
+ [1152 2282  291]
+ [ 518  516 1021]]
+Class 1 Accuracy: 93.66%
+Class 2 Accuracy: 61.26%
+Class 3 Accuracy: 49.68%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.84      0.94      0.89      9378
+     Class 2       0.69      0.61      0.65      3725
+     Class 3       0.72      0.50      0.59      2055
+
+    accuracy                           0.80     15158
+   macro avg       0.75      0.68      0.71     15158
+weighted avg       0.79      0.80      0.79     15158
+
+label smoothing +-2
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8779  447  152]
+ [1077 2240  408]
+ [ 349  587 1119]]
+Class 1 Accuracy: 93.61%
+Class 2 Accuracy: 60.13%
+Class 3 Accuracy: 54.45%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.86      0.94      0.90      9378
+     Class 2       0.68      0.60      0.64      3725
+     Class 3       0.67      0.54      0.60      2055
+
+    accuracy                           0.80     15158
+   macro avg       0.74      0.69      0.71     15158
+weighted avg       0.79      0.80      0.79     15158
+
+smoothing the predicted +-2
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8956  365   57]
+ [ 940 2603  183]
+ [ 301  880  873]]
+Class 1 Accuracy: 95.50%
+Class 2 Accuracy: 69.86%
+Class 3 Accuracy: 42.50%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.88      0.96      0.92      9378
+     Class 2       0.68      0.70      0.69      3726
+     Class 3       0.78      0.43      0.55      2054
+
+    accuracy                           0.82     15158
+   macro avg       0.78      0.69      0.72     15158
+weighted avg       0.82      0.82      0.81     15158
+
+removing worst two and smoothing the prediced
+-------------------------------------fianl--------------------------------------
+Confusion Matrix:
+ [[8989  238   25]
+ [1141 1875  240]
+ [ 286  265  814]]
+Class 1 Accuracy: 97.16%
+Class 2 Accuracy: 57.59%
+Class 3 Accuracy: 59.63%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.86      0.97      0.91      9252
+     Class 2       0.79      0.58      0.67      3256
+     Class 3       0.75      0.60      0.67      1365
+
+    accuracy                           0.84     13873
+   macro avg       0.80      0.71      0.75     13873
+weighted avg       0.83      0.84      0.83     13873

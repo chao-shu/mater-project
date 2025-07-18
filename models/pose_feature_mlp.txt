@@ -1,0 +1,43 @@
+using normalised pose feature
+Confusion Matrix:
+ [[8961  347   71]
+ [ 854 2581  291]
+ [  94  144 1816]]
+Class 1 Accuracy: 95.54%
+Class 2 Accuracy: 69.27%
+Class 3 Accuracy: 88.41%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.90      0.96      0.93      9379
+     Class 2       0.84      0.69      0.76      3726
+     Class 3       0.83      0.88      0.86      2054
+
+    accuracy                           0.88     15159
+   macro avg       0.86      0.84      0.85     15159
+weighted avg       0.88      0.88      0.88     15159
+-----------------------------------------------------
+0.2 test
+
+0.8 train: 0.8 train, 0.2 validation
+Epoch 100 | Train Loss: 96.8194 | Train Acc: 85.81% | Val Acc: 83.31%
+
+Confusion Matrix:
+ [[1722  105   49]
+ [ 220  435   90]
+ [  22   35  354]]
+Class 1 Accuracy: 91.79%
+Class 2 Accuracy: 58.39%
+Class 3 Accuracy: 86.13%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.88      0.92      0.90      1876
+     Class 2       0.76      0.58      0.66       745
+     Class 3       0.72      0.86      0.78       411
+
+    accuracy                           0.83      3032
+   macro avg       0.78      0.79      0.78      3032
+weighted avg       0.83      0.83      0.82      3032

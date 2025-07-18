@@ -1,0 +1,24 @@
+0.2 test
+
+0.8 train: 0.8 train, 0.2 validation
+
+Epoch 89 | Train Loss: 16.7023 | Train Acc: 98.01% | Val Acc: 88.38%
+
+Confusion Matrix:
+ [[1762   81   33]
+ [ 123  581   41]
+ [  22   23  366]]
+Class 1 Accuracy: 93.92%
+Class 2 Accuracy: 77.99%
+Class 3 Accuracy: 89.05%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.92      0.94      0.93      1876
+     Class 2       0.85      0.78      0.81       745
+     Class 3       0.83      0.89      0.86       411
+
+    accuracy                           0.89      3032
+   macro avg       0.87      0.87      0.87      3032
+weighted avg       0.89      0.89      0.89      3032

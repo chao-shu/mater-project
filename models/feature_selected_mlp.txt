@@ -1,0 +1,21 @@
+✅ Epoch 135 | Val Acc Improved to 89.86% → Model Saved
+
+
+Confusion Matrix:
+ [[1758   86   32]
+ [ 180  498   67]
+ [  20   35  356]]
+Class 1 Accuracy: 93.71%
+Class 2 Accuracy: 66.85%
+Class 3 Accuracy: 86.62%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+     Class 1       0.90      0.94      0.92      1876
+     Class 2       0.80      0.67      0.73       745
+     Class 3       0.78      0.87      0.82       411
+
+    accuracy                           0.86      3032
+   macro avg       0.83      0.82      0.82      3032
+weighted avg       0.86      0.86      0.86      3032
