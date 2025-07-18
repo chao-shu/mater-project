@@ -1,0 +1,587 @@
+Confusion Matrix for K=3:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=4:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=5:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=6:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=7:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=8:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=9:
+[[9378    0    0]
+ [3726    0    0]
+ [2054    0    0]]
+Accuracy: 0.6187
+
+Confusion Matrix for K=10:
+[[9151    0  227]
+ [3574    0  152]
+ [1778    0  276]]
+Accuracy: 0.6219
+
+Confusion Matrix for K=11:
+[[9151    0  227]
+ [3574    0  152]
+ [1780    0  274]]
+Accuracy: 0.6218
+
+Confusion Matrix for K=12:
+[[9152    0  226]
+ [3574    0  152]
+ [1777    0  277]]
+Accuracy: 0.6220
+
+Confusion Matrix for K=13:
+[[8881  270  227]
+ [3263  311  152]
+ [1772    1  281]]
+Accuracy: 0.6250
+
+Confusion Matrix for K=14:
+[[9152    0  226]
+ [3574    0  152]
+ [1796    0  258]]
+Accuracy: 0.6208
+
+Confusion Matrix for K=15:
+[[8953    0  425]
+ [3431    0  295]
+ [1480    0  574]]
+Accuracy: 0.6285
+
+Confusion Matrix for K=16:
+[[8686  266  426]
+ [3118  312  296]
+ [1456    4  594]]
+Accuracy: 0.6328
+
+Confusion Matrix for K=17:
+[[8889    0  489]
+ [3170    0  556]
+ [1136    0  918]]
+Accuracy: 0.6470
+
+Confusion Matrix for K=18:
+[[8824    0  554]
+ [3279    0  447]
+ [1133    0  921]]
+Accuracy: 0.6429
+
+Confusion Matrix for K=19:
+[[8685  267  426]
+ [3118  312  296]
+ [1459    2  593]]
+Accuracy: 0.6327
+
+Confusion Matrix for K=20:
+[[8686  266  426]
+ [3118  312  296]
+ [1457    3  594]]
+Accuracy: 0.6328
+
+Confusion Matrix for K=21:
+[[8806    0  572]
+ [3217    0  509]
+ [1158    0  896]]
+Accuracy: 0.6401
+
+Confusion Matrix for K=22:
+[[8624  265  489]
+ [2858  312  556]
+ [1133    2  919]]
+Accuracy: 0.6502
+
+Confusion Matrix for K=23:
+[[8561  263  554]
+ [2647  313  766]
+ [ 799    5 1250]]
+Accuracy: 0.6679
+
+Confusion Matrix for K=24:
+[[8319  266  793]
+ [2520  312  894]
+ [ 721    2 1331]]
+Accuracy: 0.6572
+
+Confusion Matrix for K=25:
+[[8343  266  769]
+ [2748  312  666]
+ [ 841    1 1212]]
+Accuracy: 0.6509
+
+Confusion Matrix for K=26:
+[[8530  265  583]
+ [2849  312  565]
+ [ 937    1 1116]]
+Accuracy: 0.6569
+
+Confusion Matrix for K=27:
+[[8315  258  805]
+ [2575  307  844]
+ [ 496    1 1557]]
+Accuracy: 0.6715
+
+Confusion Matrix for K=28:
+[[8316  260  802]
+ [2576  307  843]
+ [ 497    1 1556]]
+Accuracy: 0.6715
+
+Confusion Matrix for K=29:
+[[8754  259  365]
+ [2757  307  662]
+ [ 874    2 1178]]
+Accuracy: 0.6755
+
+Confusion Matrix for K=30:
+[[8310  262  806]
+ [2563  312  851]
+ [ 486    1 1567]]
+Accuracy: 0.6722
+
+Confusion Matrix for K=31:
+[[8197  384  797]
+ [2440  446  840]
+ [ 513    1 1540]]
+Accuracy: 0.6718
+
+Confusion Matrix for K=32:
+[[8372  394  612]
+ [2519  457  750]
+ [ 580    1 1473]]
+Accuracy: 0.6796
+
+Confusion Matrix for K=33:
+[[8475  538  365]
+ [2466  600  660]
+ [ 878    1 1175]]
+Accuracy: 0.6762
+
+Confusion Matrix for K=34:
+[[8451  316  611]
+ [2556  423  747]
+ [ 583    1 1470]]
+Accuracy: 0.6824
+
+Confusion Matrix for K=35:
+[[8312  393  673]
+ [2476  456  794]
+ [ 605    1 1448]]
+Accuracy: 0.6740
+
+Confusion Matrix for K=36:
+[[8333  373  672]
+ [2446  486  794]
+ [ 582   33 1439]]
+Accuracy: 0.6767
+
+Confusion Matrix for K=37:
+[[8201  505  672]
+ [2303  631  792]
+ [ 588   34 1432]]
+Accuracy: 0.6771
+
+Confusion Matrix for K=38:
+[[8200  506  672]
+ [2302  632  792]
+ [ 586   34 1434]]
+Accuracy: 0.6773
+
+Confusion Matrix for K=39:
+[[8489  420  469]
+ [2460  572  694]
+ [ 677    9 1368]]
+Accuracy: 0.6880
+
+Confusion Matrix for K=40:
+[[8254  648  476]
+ [2263  774  689]
+ [ 679    8 1367]]
+Accuracy: 0.6858
+
+Confusion Matrix for K=41:
+[[8275  491  612]
+ [2387  614  725]
+ [ 649    9 1396]]
+Accuracy: 0.6785
+
+Confusion Matrix for K=42:
+[[8488  530  360]
+ [2376  709  641]
+ [ 622  122 1310]]
+Accuracy: 0.6932
+
+Confusion Matrix for K=43:
+[[8448  412  518]
+ [2423  567  736]
+ [ 630    8 1416]]
+Accuracy: 0.6882
+
+Confusion Matrix for K=44:
+[[8305  461  612]
+ [2364  637  725]
+ [ 532  128 1394]]
+Accuracy: 0.6819
+
+Confusion Matrix for K=45:
+[[8397  566  415]
+ [2325  722  679]
+ [ 684    1 1369]]
+Accuracy: 0.6919
+
+Confusion Matrix for K=46:
+[[8495  606  277]
+ [2360  737  629]
+ [ 659  122 1273]]
+Accuracy: 0.6930
+
+Confusion Matrix for K=47:
+[[8192  729  457]
+ [2130  908  688]
+ [ 565  137 1352]]
+Accuracy: 0.6895
+
+Confusion Matrix for K=48:
+[[8252  568  558]
+ [2214  794  718]
+ [ 631    7 1416]]
+Accuracy: 0.6902
+
+Confusion Matrix for K=49:
+[[8317  680  381]
+ [2242  843  641]
+ [ 581  121 1352]]
+Accuracy: 0.6935
+
+Confusion Matrix for K=50:
+[[8472  509  397]
+ [2352  673  701]
+ [ 686    8 1360]]
+Accuracy: 0.6930
+
+Confusion Matrix for K=51:
+[[8457  626  295]
+ [2168  871  687]
+ [ 674   40 1340]]
+Accuracy: 0.7038
+
+Confusion Matrix for K=52:
+[[8393  733  252]
+ [2221  902  603]
+ [ 650  149 1255]]
+Accuracy: 0.6960
+
+Confusion Matrix for K=53:
+[[8507  564  307]
+ [2343  719  664]
+ [ 747    1 1306]]
+Accuracy: 0.6948
+
+Confusion Matrix for K=54:
+[[8259  840  279]
+ [2021 1077  628]
+ [ 661  128 1265]]
+Accuracy: 0.6994
+
+Confusion Matrix for K=55:
+[[8456  507  415]
+ [2350  736  640]
+ [ 569  129 1356]]
+Accuracy: 0.6959
+
+Confusion Matrix for K=56:
+[[8603  525  250]
+ [2436  689  601]
+ [ 784   30 1240]]
+Accuracy: 0.6948
+
+Confusion Matrix for K=57:
+[[8252  774  352]
+ [2044  996  686]
+ [ 563  122 1369]]
+Accuracy: 0.7004
+
+Confusion Matrix for K=58:
+[[8443  660  275]
+ [2176  927  623]
+ [ 735   45 1274]]
+Accuracy: 0.7022
+
+Confusion Matrix for K=59:
+[[8517  422  439]
+ [2429  570  727]
+ [ 635    1 1418]]
+Accuracy: 0.6930
+
+Confusion Matrix for K=60:
+[[8334  820  224]
+ [2121 1163  442]
+ [ 772  213 1069]]
+Accuracy: 0.6971
+
+Confusion Matrix for K=61:
+[[8207  743  428]
+ [1969 1238  519]
+ [ 548  246 1260]]
+Accuracy: 0.7062
+
+Confusion Matrix for K=62:
+[[8441  673  264]
+ [2228  871  627]
+ [ 640  120 1294]]
+Accuracy: 0.6997
+
+Confusion Matrix for K=63:
+[[8544  542  292]
+ [2262  854  610]
+ [ 571  181 1302]]
+Accuracy: 0.7059
+
+Confusion Matrix for K=64:
+[[8423  677  278]
+ [2245 1102  379]
+ [ 747  257 1050]]
+Accuracy: 0.6977
+
+Confusion Matrix for K=65:
+[[8453  603  322]
+ [2085 1161  480]
+ [ 642  234 1178]]
+Accuracy: 0.7120
+
+Confusion Matrix for K=66:
+[[8649  453  276]
+ [2344  771  611]
+ [ 695   65 1294]]
+Accuracy: 0.7068
+
+Confusion Matrix for K=67:
+[[8516  667  195]
+ [2245 1100  381]
+ [ 714  320 1020]]
+Accuracy: 0.7017
+
+Confusion Matrix for K=68:
+[[8657  494  227]
+ [2233 1043  450]
+ [ 726  225 1103]]
+Accuracy: 0.7127
+
+Confusion Matrix for K=69:
+[[8435  609  334]
+ [2107 1109  510]
+ [ 637  231 1186]]
+Accuracy: 0.7079
+
+Confusion Matrix for K=70:
+[[8454  546  378]
+ [2301  847  578]
+ [ 623  153 1278]]
+Accuracy: 0.6979
+
+Confusion Matrix for K=71:
+[[8662  433  283]
+ [2366 1008  352]
+ [ 613  366 1075]]
+Accuracy: 0.7089
+
+Confusion Matrix for K=72:
+[[8392  804  182]
+ [2162 1349  215]
+ [ 615  513  926]]
+Accuracy: 0.7037
+
+Confusion Matrix for K=73:
+[[8426  662  290]
+ [2244 1087  395]
+ [ 538  380 1136]]
+Accuracy: 0.7025
+
+Confusion Matrix for K=74:
+[[8311  742  325]
+ [2125 1196  405]
+ [ 540  335 1179]]
+Accuracy: 0.7050
+
+Confusion Matrix for K=75:
+[[8407  618  353]
+ [2098 1231  397]
+ [ 557  391 1106]]
+Accuracy: 0.7088
+
+Confusion Matrix for K=76:
+[[8515  615  248]
+ [2159 1159  408]
+ [ 685  246 1123]]
+Accuracy: 0.7123
+
+Confusion Matrix for K=77:
+[[8611  532  235]
+ [2315  975  436]
+ [ 587  324 1143]]
+Accuracy: 0.7078
+
+Confusion Matrix for K=78:
+[[8328  715  335]
+ [2008 1254  464]
+ [ 408  372 1274]]
+Accuracy: 0.7162
+
+Confusion Matrix for K=79:
+[[8449  553  376]
+ [2094  887  745]
+ [ 637   29 1388]]
+Accuracy: 0.7075
+
+Confusion Matrix for K=80:
+[[8559  432  387]
+ [2223  940  563]
+ [ 560  216 1278]]
+Accuracy: 0.7110
+
+Confusion Matrix for K=81:
+[[8857  300  221]
+ [2591  866  269]
+ [ 725  381  948]]
+Accuracy: 0.7040
+
+Confusion Matrix for K=82:
+[[8663  422  293]
+ [2335  942  449]
+ [ 488  336 1230]]
+Accuracy: 0.7148
+
+Confusion Matrix for K=83:
+[[8554  486  338]
+ [2313  912  501]
+ [ 629  229 1196]]
+Accuracy: 0.7034
+
+Confusion Matrix for K=84:
+[[8376  768  234]
+ [1981 1339  406]
+ [ 576  370 1108]]
+Accuracy: 0.7140
+
+Confusion Matrix for K=85:
+[[8421  539  418]
+ [1981 1172  573]
+ [ 475  253 1326]]
+Accuracy: 0.7203
+
+Confusion Matrix for K=86:
+[[8428  595  355]
+ [2051 1309  366]
+ [ 555  427 1072]]
+Accuracy: 0.7131
+
+Confusion Matrix for K=87:
+[[8347  491  540]
+ [2186  874  666]
+ [ 426  172 1456]]
+Accuracy: 0.7044
+
+Confusion Matrix for K=88:
+[[8415  497  466]
+ [2027 1052  647]
+ [ 351  261 1442]]
+Accuracy: 0.7197
+
+Confusion Matrix for K=89:
+[[8425  642  311]
+ [2062 1240  424]
+ [ 592  285 1177]]
+Accuracy: 0.7153
+
+Confusion Matrix for K=90:
+[[8622  368  388]
+ [2199 1117  410]
+ [ 474  408 1172]]
+Accuracy: 0.7198
+
+Confusion Matrix for K=91:
+[[8463  616  299]
+ [2222 1124  380]
+ [ 527  382 1145]]
+Accuracy: 0.7080
+
+Confusion Matrix for K=92:
+[[8529  603  246]
+ [2315 1160  251]
+ [ 551  506  997]]
+Accuracy: 0.7050
+
+Confusion Matrix for K=93:
+[[8358  496  524]
+ [2098 1233  395]
+ [ 351  440 1263]]
+Accuracy: 0.7161
+
+Confusion Matrix for K=94:
+[[8417  587  374]
+ [2101 1097  528]
+ [ 589  233 1232]]
+Accuracy: 0.7089
+
+Confusion Matrix for K=95:
+[[8662  387  329]
+ [2345  989  392]
+ [ 551  336 1167]]
+Accuracy: 0.7137
+
+Confusion Matrix for K=96:
+[[8318  751  309]
+ [1986 1362  378]
+ [ 550  460 1044]]
+Accuracy: 0.7075
+
+Confusion Matrix for K=97:
+[[8482  451  445]
+ [2131  831  764]
+ [ 485   65 1504]]
+Accuracy: 0.7136
+
+Confusion Matrix for K=98:
+[[8332  738  308]
+ [1888 1334  504]
+ [ 480  379 1195]]
+Accuracy: 0.7165
+
+Confusion Matrix for K=99:
+[[8395  623  360]
+ [2022 1418  286]
+ [ 483  456 1115]]
+Accuracy: 0.7209
+
+Confusion Matrix for K=100:
+[[8640  481  257]
+ [2287 1163  276]
+ [ 593  387 1074]]
+Accuracy: 0.7176
