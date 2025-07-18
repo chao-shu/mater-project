@@ -1,0 +1,368 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import sys
+import os 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from torch.utils.data import TensorDataset, DataLoader
+import torch.optim as optim
+import torch.nn.functional as F
+import torch
+from data_loader import *
+from sklearn.utils.class_weight import compute_class_weight
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.model_selection import train_test_split
+from collections import Counter
+import seaborn as sns
+from tqdm import tqdm
+import numpy as np
+from scipy.stats import mode
+import torch
+import torch.nn as nn
+
+class FeatureMLP(nn.Module):
+    def __init__(self):
+        super(FeatureMLP, self).__init__()
+        self.fc1 = nn.Linear(31,16)
+        self.relu1 = nn.ReLU()
+
+        self.fc2 = nn.Linear(16, 8)
+        self.relu2 = nn.ReLU()
+
+        self.fc3 = nn.Linear(8, 3)
+
+
+    def forward(self, x):
+        x = self.relu2(self.fc2(self.relu1(self.fc1(x))))
+        logits = self.fc3(x)
+        return logits
+    
+video_dict = {
+            "1658828085789384": 590, #other woman
+            "165745616715997": 530, #other man
+            "16572216818408213": 650, # south A woman
+            "16580176851586106": 556, # south A man
+            "1657019500197831": 656, # south A man
+            "1657025477939515": 736, # other man
+            "16569562540764549": 657, #east A man
+            "16570365844633188": 656, #east A man 
+            "16571735778363602": 660, #east A woman
+            "16572034690729465": 660, #east A woman
+            "16643616205681827": 629, #east A man
+            "16638490487013648": 664, #south A woman
+            "16637850973931577": 658, #other woman
+            "16637915350525117": 656, #other woman
+            "16639504750710998": 658, #east A man
+            "16638397654914925": 483, #east A woman
+            "16400282145": 577, #other woman
+            "163904405748": 576, #south A woman
+            "163904657409": 533, #east A man
+            "163965258378": 577, #other woman
+            "163974758282": 579, #other woman 
+            "164002054426": 576, #other man
+            "164006412052": 575, #east A woman
+            "164007913498": 574, #other man
+            "164008493608": 577 #east A woman
+            } 
+class leave_one_out():
+    def feature_loader(path, test_name):
+        features=[]
+        label = []
+        test_features = []
+        test_label = []
+        video_names = sorted(os.listdir(path))
+        for video_name in video_names:
+            video_feature_path = os.path.join(path,video_name)
+            label_list = read_dense_frame_labels(video_name.split('.')[0])
+            with open(video_feature_path, 'rb') as f:
+                temporal_features = pickle.load(f)
+
+            if video_name.split(".")[0] == test_name:
+                frame_ids = sorted(temporal_features.keys())  # Keep them sorted by frame
+                for k in frame_ids:
+
+                    test_features.append(temporal_features[k])
+                    frame = int(k.split("_")[0])
+                    test_label.append(label_list[frame][2])            
+            elif video_name.split(".")[0] in video_dict:
+                # Extract features and IDs
+                frame_ids = sorted(temporal_features.keys())  # Keep them sorted by frame
+                for k in frame_ids:
+
+                    features.append(temporal_features[k])
+                    frame = int(k.split("_")[0])
+                    label.append(label_list[frame][2])
+        features = np.array(features)
+        test_features = np.array(test_features)
+        label = np.array(label).astype(int) 
+        test_label = np.array(test_label).astype(int)
+        return features, label, test_features, test_label
+        
+    def feature_loader2(path, test_name):
+        features=[]
+        label = []
+        test_features = []
+        test_label = []
+        test_frames = []
+
+        video_names = sorted(os.listdir(path))
+        for video_name in video_names:
+            video_feature_path = os.path.join(path,video_name)
+            with open(video_feature_path, 'rb') as f:
+                temporal_features = pickle.load(f)
+
+            if video_name.split(".")[0] == test_name:
+                frame_ids = sorted(temporal_features.keys())  # Keep them sorted by frame
+                # print("frame size and label size",video_name,len(frame_ids), len(label_list))
+                for k in frame_ids:
+                    if k.split("_")[1] =="face":
+                        test_features.append(temporal_features[k])
+                        test_label.append(temporal_features[k.split("_")[0]+'_label'])
+                        test_frames.append(int(k.split("_")[0]))
+
+            elif video_name.split(".")[0] in video_dict:
+                # Extract features and IDs
+                frame_ids = sorted(temporal_features.keys())  # Keep them sorted by frame
+                # print("frame size and label size",video_name,len(frame_ids), len(label_list))
+                for k in frame_ids:
+                    if k.split("_")[1] =="face":
+                        features.append(temporal_features[k])
+                        label.append(temporal_features[k.split("_")[0]+'_label'])                
+
+        features = np.array(features)
+        test_features = np.array(test_features)
+        label = np.array(label).astype(int) 
+        test_label = np.array(test_label).astype(int)
+        return features, label, test_features, test_label, test_frames
+
+    def train(X, y):
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+        # Prepare tensors
+        X = np.array(X)
+        y = np.array(y)
+        X_tensor = torch.tensor(X, dtype=torch.float32).to(device)
+        y_tensor = torch.tensor(y - 1, dtype=torch.long).to(device)
+
+        # DataLoader with shuffle
+        train_loader = DataLoader(TensorDataset(X_tensor, y_tensor), batch_size=32, shuffle=False)
+
+        # Model, optimizer, loss
+        model = FeatureMLP().to(device)
+        optimizer = torch.optim.Adam(model.parameters())
+        criterion = torch.nn.CrossEntropyLoss()
+
+        best_model = None
+        best_train_acc = 0.0
+
+        for epoch in range(1, 201):
+            model.train()
+            total_loss = 0
+            correct = 0
+            total = 0
+
+            for batch_x, batch_y in train_loader:
+                optimizer.zero_grad()
+                logits = model(batch_x)
+                loss = criterion(logits, batch_y)
+                loss.backward()
+                optimizer.step()
+
+                total_loss += loss.item()
+                _, predicted = torch.max(logits, 1)
+                correct += (predicted == batch_y).sum().item()
+                total += batch_y.size(0)
+
+            train_acc = correct / total * 100
+
+            # Save best model by training accuracy
+            if train_acc > best_train_acc:
+                best_train_acc = train_acc
+                best_model = model.state_dict()
+                # Optional logging
+                # print(f"✅ Epoch {epoch:03d} | Train Acc Improved to {train_acc:.2f}% → Model Saved")
+
+            # Optional: logging each epoch
+            # print(f"Epoch {epoch:03d} | Train Loss: {total_loss:.4f} | Train Acc: {train_acc:.2f}%")
+
+        return best_model
+
+    
+    def test(X, y, model_dict):
+        device = torch.device("cuda")
+        # Adjust labels: [1, 2, 3] → [0, 1, 2]
+        y_tensor = torch.tensor(y - 1, dtype=torch.long).to(device)
+        X_tensor = torch.tensor(X, dtype=torch.float32).to(device)
+
+        # Load model
+        model = FeatureMLP().to(device)  # make sure this matches your training model
+        model.load_state_dict(model_dict)
+        model.eval()
+
+        with torch.no_grad():
+            logits_all= model(X_tensor)
+            _, preds = torch.max(logits_all, 1)
+
+        # Convert to numpy
+        y_true = y_tensor.cpu().numpy()
+        y_pred = preds.cpu().numpy()
+
+        return y_true, y_pred
+    
+    def leave_one_out_train(path, operation):
+        y_true = np.array([], dtype=int)
+        y_pred = np.array([], dtype=int)
+
+        with open("predicted.csv", "w", newline="")as f:
+            writer = csv.writer(f)
+            # writer.writerow(["video", "frame", "pred"])
+
+            for test_name in tqdm(video_dict.keys(), desc="LOO Fold"):  
+
+                X_train, y_train, X_test, y_test, test_frames = leave_one_out.feature_loader2(path, test_name)
+
+                model = leave_one_out.train(X_train,y_train)
+                true, pred = leave_one_out.test(X_test, y_test, model)
+                
+                for frame, p in zip(test_frames, pred):
+                    writer.writerow([test_name, frame, p+1])
+
+                print(f"-------------------------------------{test_name}--------------------------------------")
+
+                cm = confusion_matrix(true, pred)
+                print("Confusion Matrix:\n", cm)
+
+                # Per-class accuracy
+                for i in range(3):
+                    correct = np.sum((pred == i) & (true == i))
+                    total = np.sum(true == i)
+                    acc = correct / total * 100 if total > 0 else 0
+                    print(f"Class {i+1} Accuracy: {acc:.2f}%")
+
+                # Classification report
+                print("\nClassification Report:")
+                print(classification_report(true, pred,
+                        labels=[0, 1, 2],
+                        target_names=["Class 1", "Class 2", "Class 3"],
+                        zero_division=0))  # 避免除0错误
+
+
+                y_true = np.concatenate([y_true, true]) if len(y_true) else true
+                y_pred = np.concatenate([y_pred, pred]) if len(y_pred) else pred
+
+            # Confusion matrix
+            print("-------------------------------------fianl--------------------------------------")
+            cm = confusion_matrix(y_true, y_pred)
+            print("Confusion Matrix:\n", cm)
+
+            # Per-class accuracy
+            for i in range(3):
+                correct = np.sum((y_pred == i) & (y_true == i))
+                total = np.sum(y_true == i)
+                acc = correct / total * 100 if total > 0 else 0
+                print(f"Class {i+1} Accuracy: {acc:.2f}%")
+
+            # Classification report
+            print("\nClassification Report:")
+            print(classification_report(y_true, y_pred,
+                labels=[0, 1, 2],
+                target_names=["Class 1", "Class 2", "Class 3"],
+                zero_division=0))
+
+
+            plt.figure(figsize=(6,5))
+            sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["Class 1", "Class 2", "Class 3"], yticklabels=["Class 1", "Class 2", "Class 3"])
+            plt.xlabel("Predicted")
+            plt.ylabel("True")
+            plt.title("Confusion Matrix")
+            plt.tight_layout()
+            plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+
+def smooth_labels_by_voting(df, window=2):
+    smoothed = []
+
+    for video, group in df.groupby("video"):
+        group = group.sort_values("frame").reset_index(drop=True)
+        labels = group["label"].tolist()
+        frames = group["frame"].tolist()
+
+        smoothed_labels = []
+
+        for i in range(len(labels)):
+            # Get window of labels: [i-2, i-1, i, i+1, i+2]
+            start = max(0, i - window)
+            end = min(len(labels), i + window + 1)
+            window_labels = labels[start:end]
+
+            # Majority vote
+            most_common_label = Counter(window_labels).most_common(1)[0][0]
+            smoothed_labels.append(most_common_label)
+
+        group["label"] = smoothed_labels
+        smoothed.append(group)
+
+    return pd.concat(smoothed, ignore_index=True)
+
+def plot_fuc(path):
+    # Load CSV
+    df = pd.read_csv(path, header=None, names=['video', 'frame', 'label'])
+
+    # Smooth labels with context ±2 voting
+    df = smooth_labels_by_voting(df, window=2)
+
+    # Group by frame and calculate label proportions
+    label_proportions = df.groupby(['frame', 'label']).size().unstack(fill_value=0)
+    label_proportions = label_proportions.div(label_proportions.sum(axis=1), axis=0)
+
+    # Plot
+    plt.figure(figsize=(12, 6))
+    label_proportions.plot(kind='area', stacked=True, colormap='tab10', figsize=(14, 6))
+    plt.title("Label Proportions per Frame (Smoothed with ±2 Voting)")
+    plt.xlabel("Frame Number")
+    plt.ylabel("Proportion")
+    plt.legend(title="Label", bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    plt.show()
+
+def predicted_GT_comparison(predicted_path, GT_path):
+    predicted_df = pd.read_csv(predicted_path, header=None, names=['video', 'frame', 'label'])
+    GT_df = pd.read_csv(GT_path, header=None, names=['video', 'frame', 'label'])
+
+    predicted_df = smooth_labels_by_voting(predicted_df, window=2)
+    # Rename for clarity
+    predicted_df = predicted_df.rename(columns={'label': 'pred'})
+    GT_df = GT_df.rename(columns={'label': 'true'})
+    
+    GT_df['frame'] = GT_df['frame'] - 1
+    # Merge on video and frame
+    merged = pd.merge(GT_df, predicted_df, on=['video', 'frame'], how='inner')
+    print(len(predicted_df),len(GT_df),len(merged))
+    # Calculate accuracy
+    correct = (merged['true'] == merged['pred']).sum()
+    total = len(merged)
+    accuracy = correct / total * 100 if total > 0 else 0
+    print(f"Label Accuracy: {accuracy:.2f}% ({correct}/{total})")
+
+    # Classification report
+    y_true = merged['true']
+    y_pred = merged['pred']
+
+    print("\nClassification Report:")
+    print(classification_report(
+        y_true, y_pred,
+        labels=[1, 2, 3],  # Adjust based on your label set
+        target_names=["Class 1", "Class 2", "Class 3"],
+        zero_division=0  # Avoid division by zero warnings
+    ))
+def main():
+    # leave_one_out.leave_one_out_train("features/combined_feature_with_reduced_pose_mlp_after_selection", 2)
+    
+    GT_path = './data/label/denseframelabel.csv'
+    predicted_path = "./predicted.csv"
+    # plot_fuc(predicted_path)
+    predicted_GT_comparison(predicted_path, GT_path)
+if __name__ == "__main__":
+    main()
